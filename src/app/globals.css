@@ -1,26 +1,164 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+:root{
+  --bg: #05070a;
+  --panel: rgba(255,255,255,0.03);
+  --border: rgba(255,255,255,0.10);
+  --border2: rgba(255,255,255,0.14);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.65);
+  --muted2: rgba(255,255,255,0.52);
+  --accent: #2F6BFF;
+
+  /* Daytona-like code theme */
+  --code-bg: rgba(0,0,0,0.35);
+  --code-border: rgba(255,255,255,0.10);
+  --code-line: rgba(255,255,255,0.08);
+
+  --tok-fg: rgba(255,255,255,0.82);
+  --tok-dim: rgba(255,255,255,0.35);
+
+  --tok-cyan: #22d3ee;
+  --tok-blue: #60a5fa;
+  --tok-yellow:#fbbf24;
+  --tok-purple:#c084fc;
+  --tok-green:#34d399;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html, body { height: 100%; }
+
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-geist), system-ui, -apple-system, Segoe UI, Roboto, Arial;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.mono{
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Background */
+.daytona-bg{
+  background:
+    radial-gradient(900px 520px at 25% 35%, rgba(255,255,255,0.06), transparent 58%),
+    radial-gradient(860px 540px at 72% 30%, rgba(255,255,255,0.05), transparent 60%),
+    radial-gradient(circle at 50% 55%, rgba(0,0,0,0.0), rgba(0,0,0,0.70) 72%),
+    radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: auto, auto, auto, 24px 24px;
+  background-position: center, center, center, 0 0;
+  background-color: var(--bg);
 }
+
+.brd{ border: 1px solid var(--border); }
+.brd2{ border: 1px solid var(--border2); }
+
+.panel{
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: 0 25px 70px rgba(0,0,0,0.60);
+}
+
+/* For TabsWithCode right panel */
+.daytona-panel{
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 25px 70px rgba(0,0,0,0.60);
+}
+
+.link{ color: var(--muted); }
+.link:hover{ color: rgba(255,255,255,0.9); }
+
+.btn-primary{
+  background: var(--accent);
+  color: white;
+  border-radius: 10px;
+  padding: 12px 22px;
+  font-weight: 600;
+  transition: 160ms;
+}
+.btn-primary:hover{ filter: brightness(1.1); }
+.btn-primary:active{ transform: scale(0.98); }
+
+.btn-ghost{
+  border: 1px solid rgba(255,255,255,0.16);
+  background: transparent;
+  color: rgba(255,255,255,0.85);
+  border-radius: 10px;
+  padding: 12px 22px;
+  font-weight: 600;
+  transition: 160ms;
+}
+.btn-ghost:hover{ background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.25); }
+.btn-ghost:active{ transform: scale(0.98); }
+
+/* ---- Code polish ---- */
+.code-shell{
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.60);
+}
+
+.code-pre{
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+}
+
+.code-ln{
+  color: var(--tok-dim);
+  border-right: 1px solid var(--code-line);
+}
+
+/* token classes (your custom highlighting) */
+.tok-fg{ color: var(--tok-fg); }
+.tok-dim{ color: var(--tok-dim); }
+.tok-cyan{ color: var(--tok-cyan); }
+.tok-blue{ color: var(--tok-blue); }
+.tok-yellow{ color: var(--tok-yellow); }
+.tok-purple{ color: var(--tok-purple); }
+.tok-green{ color: var(--tok-green); }
+
+.code-kw { color: var(--tok-cyan); }
+.code-id { color: var(--tok-blue); }
+.code-fn { color: var(--tok-yellow); }
+.code-str{ color: var(--tok-purple); }
+.code-num{ color: var(--tok-green); }
+.code-com{ color: rgba(255,255,255,0.45); }
+
+/* Prism output tokens (so Prism becomes colorful too) */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata { color: rgba(255,255,255,0.45); }
+
+.token.punctuation { color: rgba(255,255,255,0.70); }
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted { color: var(--tok-blue); }
+
+.token.boolean,
+.token.number { color: var(--tok-green); }
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted { color: var(--tok-purple); }
+
+.token.operator,
+.token.entity,
+.token.url { color: rgba(255,255,255,0.75); }
+
+.token.atrule,
+.token.attr-value,
+.token.keyword { color: var(--tok-cyan); }
+
+.token.function,
+.token.class-name { color: var(--tok-yellow); }
+
+.token.regex,
+.token.important,
+.token.variable { color: var(--tok-yellow); }

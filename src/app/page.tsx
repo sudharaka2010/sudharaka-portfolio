@@ -1,65 +1,439 @@
-import Image from "next/image";
+import type { ReactNode } from "react";
+import Link from "next/link";
+import {
+  ArrowRight,
+  CloudCog,
+  Database,
+  Figma,
+  Github,
+  Linkedin,
+  Leaf,
+  LucideIcon,
+  Send,
+  ShipWheel,
+  TerminalSquare,
+  Waypoints,
+} from "lucide-react";
+import DaytonaCode from "@/components/DaytonaCode";
+import TabsWithCode from "@/components/TabsWithCode";
 
-export default function Home() {
+function Container({ children }: { children: ReactNode }) {
+  return <div className="mx-auto max-w-6xl px-5">{children}</div>;
+}
+
+function TopBar() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="border-b border-white/10 bg-black/20">
+      <Container>
+        <div className="mono py-2 text-center text-xs text-white/60">
+          Backend Portfolio for Engineering at Scale //{" "}
+          <span className="text-white/80">Open for Internship</span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </Container>
     </div>
+  );
+}
+
+function Navbar() {
+  return (
+    <header className="pt-6">
+      <Container>
+        <nav className="flex items-center justify-between">
+          <div className="flex items-center gap-8">
+            <div className="flex items-center gap-3">
+              <div className="brd grid h-10 w-10 place-items-center rounded-lg bg-white/5 font-bold">
+                S
+              </div>
+              <div className="leading-tight">
+                <div className="text-sm font-semibold">Sudharaka Lakshan</div>
+                <div className="text-xs text-white/55">
+                  Backend-Focused SE Undergraduate
+                </div>
+              </div>
+            </div>
+
+            <div className="hidden items-center gap-5 text-sm md:flex">
+              <a className="link" href="#projects">
+                Projects
+              </a>
+              <a className="link" href="#skills">
+                Skills
+              </a>
+              <a className="link" href="#experience">
+                Experience
+              </a>
+              <a className="link" href="#contact">
+                Contact
+              </a>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <a
+              className="brd grid h-10 w-10 place-items-center rounded-lg bg-white/5 transition hover:bg-white/10"
+              href="https://github.com/sudharaka2010"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+            >
+              <Github className="h-4 w-4 text-white/70" />
+            </a>
+            <a
+              className="brd grid h-10 w-10 place-items-center rounded-lg bg-white/5 transition hover:bg-white/10"
+              href="https://linkedin.com/in/sudharaka-thilakasiri-229575199"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="h-4 w-4 text-white/70" />
+            </a>
+            <a className="btn-ghost" href="#contact">
+              Hire Me
+            </a>
+          </div>
+        </nav>
+      </Container>
+    </header>
+  );
+}
+
+function Hero() {
+  const pythonLines = [
+    {
+      html: `<span class="tok-cyan">from</span> <span class="tok-blue">portfolio</span> <span class="tok-cyan">import</span> <span class="tok-yellow">Sudharaka</span>`,
+    },
+    { html: `` },
+    {
+      html: `<span class="tok-fg">me</span> <span class="tok-dim">=</span> <span class="tok-yellow">Sudharaka</span><span class="tok-fg">(</span>`,
+    },
+    {
+      html: `  <span class="tok-blue">role</span><span class="tok-dim">=</span><span class="tok-purple">"Backend-Focused SE Undergraduate"</span>,`,
+    },
+    {
+      html: `  <span class="tok-blue">stack</span><span class="tok-dim">=</span>[<span class="tok-purple">"Java"</span>, <span class="tok-purple">"Spring Boot"</span>, <span class="tok-purple">"PostgreSQL"</span>, <span class="tok-purple">"Docker"</span>],`,
+    },
+    { html: `<span class="tok-fg">)</span>` },
+    { html: `` },
+    {
+      html: `<span class="tok-yellow">print</span><span class="tok-fg">(</span><span class="tok-blue">me</span><span class="tok-fg">.</span><span class="tok-blue">open_to</span><span class="tok-fg">(</span><span class="tok-purple">"Backend Internship"</span><span class="tok-fg">))</span>`,
+    },
+  ];
+
+  return (
+    <section className="pb-14 pt-16">
+      <Container>
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+          <div>
+            <h1 className="text-5xl font-semibold tracking-tight md:text-6xl">
+              Build Backend Systems.
+            </h1>
+
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/65">
+              Backend-focused Software Engineering undergraduate building RESTful
+              APIs with <span className="text-white/85">Java and Spring Boot</span>,{" "}
+              strong in{" "}
+              <span className="text-white/85">relational databases</span>, learning{" "}
+              <span className="text-white/85">Docker + DevOps</span>.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a className="btn-primary" href="#projects">
+                View Projects
+              </a>
+              <a
+                className="btn-ghost inline-flex items-center gap-2"
+                href="#contact"
+              >
+                Contact <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+
+            <div className="mono mt-7 flex flex-wrap gap-3 text-xs text-white/70">
+              {[
+                "Java",
+                "Spring Boot",
+                "REST APIs",
+                "PostgreSQL / MySQL",
+                "Docker",
+              ].map((t) => (
+                <span key={t} className="brd rounded-lg bg-white/5 px-3 py-1">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <DaytonaCode
+            title="pip install sudharaka"
+            leftBadges={["Py", "TS"]}
+            lines={pythonLines}
+          />
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function LogoWall() {
+  const items: Array<{
+    name: string;
+    slug: string;
+    Icon: LucideIcon;
+    hoverIconClass: string;
+  }> = [
+    {
+      name: "Java",
+      slug: "java",
+      Icon: Waypoints,
+      hoverIconClass: "group-hover:text-[#f89820]",
+    },
+    {
+      name: "Spring",
+      slug: "spring",
+      Icon: Leaf,
+      hoverIconClass: "group-hover:text-[#6db33f]",
+    },
+    {
+      name: "PostgreSQL",
+      slug: "postgresql",
+      Icon: Database,
+      hoverIconClass: "group-hover:text-[#4169e1]",
+    },
+    {
+      name: "Docker",
+      slug: "docker",
+      Icon: ShipWheel,
+      hoverIconClass: "group-hover:text-[#2496ed]",
+    },
+    {
+      name: "GitHub",
+      slug: "github",
+      Icon: Github,
+      hoverIconClass: "group-hover:text-white",
+    },
+    {
+      name: "AWS",
+      slug: "aws",
+      Icon: CloudCog,
+      hoverIconClass: "group-hover:text-[#ff9900]",
+    },
+    {
+      name: "Linux",
+      slug: "linux",
+      Icon: TerminalSquare,
+      hoverIconClass: "group-hover:text-[#fcc624]",
+    },
+    {
+      name: "Figma",
+      slug: "figma",
+      Icon: Figma,
+      hoverIconClass: "group-hover:text-[#a259ff]",
+    },
+    {
+      name: "Postman",
+      slug: "postman",
+      Icon: Send,
+      hoverIconClass: "group-hover:text-[#ff6c37]",
+    },
+  ];
+
+  return (
+    <section id="skills" className="py-16">
+      <Container>
+        <div>
+          <div className="mono px-2 py-2 text-sm text-white/65">
+            Tools and technologies I use
+          </div>
+          <div className="mt-4 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
+            {items.map((item) => (
+              <Link
+                key={item.slug}
+                href={`/tech/${item.slug}`}
+                className={[
+                  "group grid h-28 place-items-center gap-3 rounded-xl border border-white/10 px-3 text-center",
+                  "bg-white/[0.015] transition-colors duration-200",
+                  "hover:border-emerald-400/35 hover:bg-emerald-500/[0.08]",
+                ].join(" ")}
+              >
+                <item.Icon
+                  className={[
+                    "h-6 w-6 text-white/40 transition-colors duration-200",
+                    item.hoverIconClass,
+                  ].join(" ")}
+                />
+                <span className="font-semibold text-white/80 transition-colors duration-200 group-hover:text-emerald-100">
+                  {item.name}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function Feature3() {
+  const cards = [
+    {
+      title: "REST API Development",
+      desc: "Clean Controller-Service-Repository APIs with validation and error handling.",
+      videoSrc: "/videos/rest-api.mp4",
+      videoLabel: "API Flow",
+    },
+    {
+      title: "Database Design",
+      desc: "Relational modeling, normalization, and efficient CRUD workflows.",
+      videoSrc: "/videos/database-design.mp4",
+      videoLabel: "Schema + Query",
+    },
+    {
+      title: "DevOps Exposure",
+      desc: "Docker basics, environments, CI/CD exposure and Linux CLI habits.",
+      videoSrc: "/videos/devops.mp4",
+      videoLabel: "Docker + CI",
+    },
+  ];
+
+  return (
+    <section id="experience" className="py-16">
+      <Container>
+        <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">
+          Fast, Clean, Practical
+          <div className="text-white/55">Backend Engineering Focus.</div>
+        </h2>
+
+        <div className="brd mt-10 grid grid-cols-1 overflow-hidden rounded-2xl md:grid-cols-3">
+          {cards.map((c, idx) => (
+            <div
+              key={c.title}
+              className={[
+                "group p-8",
+                "border-white/10",
+                idx !== 2 ? "md:border-r" : "",
+                "border-b md:border-b-0",
+              ].join(" ")}
+            >
+              <div className="mono text-lg font-semibold">{c.title}</div>
+              <p className="mt-3 leading-relaxed text-white/60">{c.desc}</p>
+              <div className="brd relative mt-10 h-36 overflow-hidden rounded-xl bg-black/50">
+                <video
+                  className="h-full w-full object-cover opacity-80 transition duration-300 group-hover:scale-[1.02] group-hover:opacity-100"
+                  src={c.videoSrc}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label={`${c.title} video preview`}
+                >
+                  Your browser does not support the video tag.
+                </video>
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 px-3 pb-2">
+                  <span className="mono rounded-md border border-emerald-300/30 bg-emerald-400/12 px-2 py-0.5 text-[10px] tracking-[0.14em] text-emerald-100/90">
+                    {c.videoLabel}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer id="contact" className="border-t border-white/10 py-20">
+      <Container>
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
+          <div className="md:col-span-2">
+            <div className="flex items-center gap-3">
+              <div className="brd grid h-10 w-10 place-items-center rounded-lg bg-white/5 font-bold">
+                S
+              </div>
+              <div>
+                <div className="font-semibold">Sudharaka Lakshan</div>
+                <div className="text-xs text-white/55">Backend Portfolio</div>
+              </div>
+            </div>
+
+            <p className="mt-5 max-w-xl leading-relaxed text-white/60">
+              Contact:{" "}
+              <span className="text-white/80">sudharaka.lakshan@outlook.com</span>{" "}
+              - <span className="text-white/80">+94 77 858 7128</span>
+            </p>
+          </div>
+
+          <div>
+            <div className="mono mb-3 text-xs text-white/50">SECTIONS</div>
+            <div className="space-y-2">
+              <a className="link block" href="#projects">
+                Projects
+              </a>
+              <a className="link block" href="#skills">
+                Skills
+              </a>
+              <a className="link block" href="#experience">
+                Experience
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <div className="mono mb-3 text-xs text-white/50">FOLLOW</div>
+            <div className="space-y-2">
+              <a
+                className="link block"
+                href="https://github.com/sudharaka2010"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>
+              <a
+                className="link block"
+                href="https://linkedin.com/in/sudharaka-thilakasiri-229575199"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-14 border-t border-white/10 pt-8 text-xs text-white/45">
+          (c) {new Date().getFullYear()} Sudharaka Lakshan Thilakasiri
+        </div>
+      </Container>
+    </footer>
+  );
+}
+
+export default function Page() {
+  return (
+    <main className="daytona-bg min-h-screen">
+      <TopBar />
+      <Navbar />
+      <Hero />
+      <LogoWall />
+      <Feature3 />
+
+      <section id="projects" className="py-16">
+        <Container>
+          <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">
+            Programmatic Control.
+            <div className="text-white/55">File, Git, LSP, and Execute API.</div>
+          </h2>
+
+          <TabsWithCode />
+        </Container>
+      </section>
+
+      <Footer />
+    </main>
   );
 }
