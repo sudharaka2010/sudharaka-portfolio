@@ -62,20 +62,22 @@ function CodeBlock({ filename, code }: { filename: string; code: string }) {
   };
 
   return (
-    <div className="daytona-panel rounded-2xl overflow-hidden">
+    <div className="daytona-panel min-w-0 overflow-hidden rounded-2xl">
       {/* top bar */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
+      <div className="flex items-center justify-between border-b border-white/10 px-3 py-2.5 sm:px-4 sm:py-3">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
           <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
           <span className="w-2 h-2 rounded-full bg-[#28c840]" />
-          <div className="ml-2 text-white/60 text-[13px] mono">{filename}</div>
+          <div className="mono ml-2 max-w-[140px] truncate text-[12px] text-white/60 sm:max-w-none sm:text-[13px]">
+            {filename}
+          </div>
         </div>
 
         <button
           type="button"
           onClick={onCopy}
-          className="h-9 w-9 grid place-items-center rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition"
+          className="grid h-8 w-8 place-items-center rounded-xl border border-white/10 bg-white/5 transition hover:bg-white/10 sm:h-9 sm:w-9"
           aria-label="Copy code"
           title="Copy"
         >
@@ -84,7 +86,7 @@ function CodeBlock({ filename, code }: { filename: string; code: string }) {
       </div>
 
       {/* code */}
-      <pre className="max-h-[420px] overflow-auto px-5 py-4 text-[13.5px] leading-[1.85]">
+      <pre className="max-h-[360px] overflow-auto px-3 py-3 text-[12.5px] leading-[1.7] sm:max-h-[420px] sm:px-5 sm:py-4 sm:text-[13.5px] sm:leading-[1.85]">
         <code
           className={`language-${language} mono text-white/80`}
           dangerouslySetInnerHTML={{ __html: highlighted }}
@@ -178,9 +180,9 @@ public class ApplicationController {
   const current = tabs.find((t) => t.id === active) ?? tabs[0];
 
   return (
-    <div className="mt-10 grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-10 items-start">
+    <div className="mt-8 grid grid-cols-1 items-start gap-6 sm:mt-10 sm:gap-10 lg:grid-cols-[minmax(300px,420px)_1fr]">
       {/* LEFT */}
-      <div className="rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
+      <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5">
         {tabs.map((t) => {
           const isActive = t.id === active;
 
@@ -191,13 +193,13 @@ public class ApplicationController {
               onClick={() => setActive(t.id)}
               className={[
                 "w-full text-left",
-                "py-6",
+                "py-4 sm:py-6",
                 "border-b border-white/10 last:border-b-0",
                 "transition-colors",
                 isActive ? "bg-white/10" : "hover:bg-white/5",
               ].join(" ")}
             >
-              <div className="flex items-start gap-4 px-6">
+              <div className="flex items-start gap-3 px-4 sm:gap-4 sm:px-6">
                 {/* EXACT 16x16 icon */}
                 <span
                   className={[
@@ -212,11 +214,11 @@ public class ApplicationController {
                 </span>
 
                 <div className="min-w-0">
-                  <div className="mono text-[17px] text-white font-medium tracking-tight">
+                  <div className="mono text-base font-medium tracking-tight text-white sm:text-[17px]">
                     {t.label}
                   </div>
 
-                  <div className="mt-3 text-white/55 text-[14.5px] leading-relaxed max-w-[340px]">
+                  <div className="mt-2.5 max-w-none text-[13.5px] leading-relaxed text-white/55 sm:mt-3 sm:max-w-[340px] sm:text-[14.5px]">
                     {t.text}
                   </div>
                 </div>

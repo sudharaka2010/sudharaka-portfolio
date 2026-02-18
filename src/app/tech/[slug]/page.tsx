@@ -116,7 +116,7 @@ export default async function TechPage({
 
   return (
     <main className="daytona-bg min-h-screen">
-      <div className="mx-auto max-w-4xl px-5 py-14">
+      <div className="mx-auto max-w-4xl px-4 py-10 sm:px-5 sm:py-14">
         <Link
           href="/#skills"
           className="inline-flex items-center gap-2 text-sm text-white/65 transition hover:text-white"
@@ -125,15 +125,15 @@ export default async function TechPage({
           Back to skills
         </Link>
 
-        <section className="panel mt-6 rounded-2xl p-8 md:p-10">
+        <section className="panel mt-6 rounded-2xl p-5 sm:p-8 md:p-10">
           <div className="flex items-center gap-4">
             <tech.Icon className={`h-9 w-9 ${tech.colorClass}`} />
-            <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
+            <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
               {tech.name}
             </h1>
           </div>
 
-          <p className="mt-6 max-w-2xl leading-relaxed text-white/70">
+          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-white/70 sm:text-base">
             {tech.summary}
           </p>
 
@@ -141,7 +141,7 @@ export default async function TechPage({
             href={tech.docsUrl}
             target="_blank"
             rel="noreferrer"
-            className="btn-ghost mt-8 inline-flex items-center gap-2"
+            className="btn-ghost mt-8 inline-flex w-full items-center justify-center gap-2 sm:w-auto"
           >
             Open official docs
             <ExternalLink className="h-4 w-4" />

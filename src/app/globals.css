@@ -63,6 +63,7 @@ body{
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.10);
   box-shadow: 0 25px 70px rgba(0,0,0,0.60);
+  min-width: 0;
 }
 
 .link{ color: var(--muted); }
@@ -91,11 +92,21 @@ body{
 .btn-ghost:hover{ background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.25); }
 .btn-ghost:active{ transform: scale(0.98); }
 
+@media (max-width: 640px){
+  .btn-primary,
+  .btn-ghost{
+    padding: 10px 14px;
+    border-radius: 9px;
+    font-size: 0.9rem;
+  }
+}
+
 /* ---- Code polish ---- */
 .code-shell{
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255,255,255,0.10);
   box-shadow: 0 24px 70px rgba(0,0,0,0.60);
+  min-width: 0;
 }
 
 .code-pre{
