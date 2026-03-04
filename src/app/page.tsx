@@ -14,7 +14,8 @@ import {
   TerminalSquare,
   Waypoints,
 } from "lucide-react";
-import DaytonaCode from "@/components/DaytonaCode";
+import HeroCodeSlider from "@/components/HeroCodeSlider";
+import ExperienceVideo from "@/components/ExperienceVideo";
 import TabsWithCode from "@/components/TabsWithCode";
 
 function Container({ children }: { children: ReactNode }) {
@@ -49,7 +50,7 @@ function Navbar() {
                   Sudharaka Lakshan
                 </div>
                 <div className="hidden text-xs text-white/55 sm:block">
-                  Backend-Focused SE Undergraduate
+                  Backend &amp; Database Engineering
                 </div>
               </div>
             </div>
@@ -115,27 +116,6 @@ function Navbar() {
 }
 
 function Hero() {
-  const pythonLines = [
-    {
-      html: `<span class="tok-cyan">from</span> <span class="tok-blue">portfolio</span> <span class="tok-cyan">import</span> <span class="tok-yellow">Sudharaka</span>`,
-    },
-    { html: `` },
-    {
-      html: `<span class="tok-fg">me</span> <span class="tok-dim">=</span> <span class="tok-yellow">Sudharaka</span><span class="tok-fg">(</span>`,
-    },
-    {
-      html: `  <span class="tok-blue">role</span><span class="tok-dim">=</span><span class="tok-purple">"Backend-Focused SE Undergraduate"</span>,`,
-    },
-    {
-      html: `  <span class="tok-blue">stack</span><span class="tok-dim">=</span>[<span class="tok-purple">"Java"</span>, <span class="tok-purple">"Spring Boot"</span>, <span class="tok-purple">"PostgreSQL"</span>, <span class="tok-purple">"Docker"</span>],`,
-    },
-    { html: `<span class="tok-fg">)</span>` },
-    { html: `` },
-    {
-      html: `<span class="tok-yellow">print</span><span class="tok-fg">(</span><span class="tok-blue">me</span><span class="tok-fg">.</span><span class="tok-blue">open_to</span><span class="tok-fg">(</span><span class="tok-purple">"Backend Internship"</span><span class="tok-fg">))</span>`,
-    },
-  ];
-
   return (
     <section className="pb-12 pt-10 sm:pb-14 sm:pt-16">
       <Container>
@@ -181,11 +161,7 @@ function Hero() {
           </div>
 
           <div className="min-w-0">
-            <DaytonaCode
-              title="pip install sudharaka"
-              leftBadges={["Py", "TS"]}
-              lines={pythonLines}
-            />
+            <HeroCodeSlider />
           </div>
         </div>
       </Container>
@@ -293,7 +269,12 @@ function LogoWall() {
 }
 
 function Feature3() {
-  const cards = [
+  const cards: Array<{
+    title: string;
+    desc: string;
+    videoLabel: string;
+    videoSrc?: string;
+  }> = [
     {
       title: "REST API Development",
       desc: "Clean Controller-Service-Repository APIs with validation and error handling.",
@@ -303,13 +284,11 @@ function Feature3() {
     {
       title: "Database Design",
       desc: "Relational modeling, normalization, and efficient CRUD workflows.",
-      videoSrc: "/videos/database-design.mp4",
       videoLabel: "Schema + Query",
     },
     {
       title: "DevOps Exposure",
       desc: "Docker basics, environments, CI/CD exposure and Linux CLI habits.",
-      videoSrc: "/videos/devops.mp4",
       videoLabel: "Docker + CI",
     },
   ];
@@ -337,26 +316,27 @@ function Feature3() {
               <p className="mt-3 text-sm leading-relaxed text-white/60 sm:text-base">
                 {c.desc}
               </p>
-              <div className="brd relative mt-6 h-32 overflow-hidden rounded-xl bg-black/50 sm:mt-10 sm:h-36">
-                <video
-                  className="h-full w-full object-cover opacity-80 transition duration-300 group-hover:scale-[1.02] group-hover:opacity-100"
+              {c.videoSrc ? (
+                <ExperienceVideo
                   src={c.videoSrc}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  aria-label={`${c.title} video preview`}
-                >
-                  Your browser does not support the video tag.
-                </video>
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 px-3 pb-2">
-                  <span className="mono rounded-md border border-emerald-300/30 bg-emerald-400/12 px-2 py-0.5 text-[10px] tracking-[0.14em] text-emerald-100/90">
-                    {c.videoLabel}
-                  </span>
+                  title={c.title}
+                  label={c.videoLabel}
+                />
+              ) : (
+                <div className="brd relative mt-6 h-32 overflow-hidden rounded-xl bg-black/40 sm:mt-10 sm:h-36">
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+                  <div className="grid h-full place-items-center px-4 text-center">
+                    <span className="mono rounded-md border border-dashed border-white/20 bg-white/[0.03] px-3 py-1 text-[10px] tracking-[0.14em] text-white/55">
+                      VIDEO COMING SOON
+                    </span>
+                  </div>
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 px-3 pb-2">
+                    <span className="mono rounded-md border border-white/20 bg-white/[0.06] px-2 py-0.5 text-[10px] tracking-[0.14em] text-white/70">
+                      {c.videoLabel}
+                    </span>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           ))}
         </div>
