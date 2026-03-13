@@ -7,26 +7,35 @@ const VISITOR_COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const totalVisitors = await getVisitorTotal();
-  return NextResponse.json({ totalVisitors });
+  try {
+    const totalVisitors = await getVisitorTotal();
+    return NextResponse.json({ totalVisitors });
+  } catch {
+    return NextResponse.json({ totalVisitors: 0, unavailable: true });
+  }
 }
 
 export async function POST(request: NextRequest) {
   const hasVisitedBefore = request.cookies.has(VISITOR_COOKIE);
-  const totalVisitors = await trackVisitor(hasVisitedBefore);
-  const response = NextResponse.json({ totalVisitors });
 
-  if (!hasVisitedBefore) {
-    response.cookies.set({
-      name: VISITOR_COOKIE,
-      value: "1",
-      httpOnly: true,
-      sameSite: "lax",
-      secure: process.env.NODE_ENV === "production",
-      maxAge: VISITOR_COOKIE_MAX_AGE,
-      path: "/",
-    });
+  try {
+    const totalVisitors = await trackVisitor(hasVisitedBefore);
+    const response = NextResponse.json({ totalVisitors });
+
+    if (!hasVisitedBefore) {
+      response.cookies.set({
+        name: VISITOR_COOKIE,
+        value: "1",
+        httpOnly: true,
+        sameSite: "lax",
+        secure: process.env.NODE_ENV === "production",
+        maxAge: VISITOR_COOKIE_MAX_AGE,
+        path: "/",
+      });
+    }
+
+    return response;
+  } catch {
+    return NextResponse.json({ totalVisitors: 0, unavailable: true });
   }
-
-  return response;
 }
