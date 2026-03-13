@@ -1501,7 +1501,8 @@ export default function FigmaDesignShowcase({
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/66 sm:text-lg">
               This page shows how I use Figma for wireframes, polished UI, responsive
-              layouts, developer handoff, and live media uploads for design case studies.
+              layouts, prototype thinking, and developer handoff for public design case
+              studies.
             </p>
             <div className="mt-7 flex flex-wrap gap-2.5">
               {TECHNICAL_TOOLS.map((tool) => (
@@ -1514,15 +1515,6 @@ export default function FigmaDesignShowcase({
               ))}
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              {isAdmin ? (
-                <a
-                  href="#figma-uploader"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-black transition hover:opacity-92"
-                >
-                  Admin upload panel
-                  <ArrowUpRight className="h-4 w-4" />
-                </a>
-              ) : null}
               <a
                 href={docsUrl}
                 target="_blank"
@@ -1559,49 +1551,51 @@ export default function FigmaDesignShowcase({
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="figma-float rounded-[24px] border border-white/12 bg-black/18 p-4 [animation-delay:1.4s]">
                   <div className="mono text-[10px] tracking-[0.16em] text-white/48 uppercase">
-                    Uploaded videos
+                    Motion previews
                   </div>
                   <div className="mt-3 text-3xl font-semibold text-white/94">
-                    {uploadedVideoProjects.length}
+                    {DEFAULT_PROJECTS.length}
                   </div>
                   <p className="mt-2 text-sm text-white/64">
-                    Admin-published motion clips ready inside the main preview gallery.
+                    Prototype-style video cards that highlight transitions, flows, and
+                    interaction rhythm.
                   </p>
                 </div>
                 <div className="figma-float rounded-[24px] border border-white/12 bg-black/18 p-4 [animation-delay:2.4s]">
                   <div className="mono text-[10px] tracking-[0.16em] text-white/48 uppercase">
-                    Uploaded images
+                    Image concepts
                   </div>
                   <div className="mt-3 text-3xl font-semibold text-white/94">
-                    {uploadedImageProjects.length}
+                    {DEFAULT_PROJECTS.length}
                   </div>
                   <p className="mt-2 text-sm text-white/64">
-                    Admin-published image boards and thumbnails in the moving preview rail.
+                    Static boards and frame studies arranged in a cleaner presentation
+                    flow.
                   </p>
                 </div>
               </div>
 
               <div className="figma-float rounded-[24px] border border-white/12 bg-black/20 p-4 [animation-delay:0.7s]">
                 <div className="mono text-[10px] tracking-[0.16em] text-white/48 uppercase">
-                  Upload rules
+                  Design focus
                 </div>
                 <div className="mt-3 grid gap-3 sm:grid-cols-3">
                   <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-3">
-                    <div className="text-sm font-medium text-white/90">Required</div>
+                    <div className="text-sm font-medium text-white/90">Structure</div>
                     <div className="mt-1 text-xs text-white/58">
-                      Title, description, link, and the main media file.
+                      Clear layout hierarchy before decoration or motion.
                     </div>
                   </div>
                   <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-3">
-                    <div className="text-sm font-medium text-white/90">Optional</div>
+                    <div className="text-sm font-medium text-white/90">Prototype</div>
                     <div className="mt-1 text-xs text-white/58">
-                      Add a thumbnail for both video and image uploads.
+                      Interaction thinking shown through movement and preview flow.
                     </div>
                   </div>
                   <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-3">
-                    <div className="text-sm font-medium text-white/90">Instant</div>
+                    <div className="text-sm font-medium text-white/90">Handoff</div>
                     <div className="mt-1 text-xs text-white/58">
-                      New uploads appear immediately in the preview area below.
+                      Components and spacing prepared for frontend implementation.
                     </div>
                   </div>
                 </div>
@@ -1924,8 +1918,8 @@ export default function FigmaDesignShowcase({
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-white/64 sm:text-base">
               Hover a video card to get a quick motion preview, then click to open a
-              larger player. Uploaded projects are shown first, then the curated
-              showcase designs.
+              larger player. Switch between prototype-style video cards and image-based
+              project boards.
             </p>
           </div>
 

@@ -16,8 +16,6 @@ import {
 } from "lucide-react";
 import FigmaDesignShowcase from "@/components/FigmaDesignShowcase";
 import GitHubProfileShowcase from "@/components/GitHubProfileShowcase";
-import { hasAdminSession } from "@/lib/admin-auth";
-import { listAdminGalleryItems } from "@/lib/admin-gallery";
 import { getGitHubShowcaseData } from "@/lib/github-profile";
 
 type Tech = {
@@ -120,9 +118,6 @@ export default async function TechPage({
   const isFigma = slug === "figma";
   const isGitHub = slug === "github";
   const githubDataPromise = isGitHub ? getGitHubShowcaseData().catch(() => null) : null;
-  const [isAdmin, galleryItems] = isFigma
-    ? await Promise.all([hasAdminSession(), listAdminGalleryItems()])
-    : [false, []];
   const githubData = githubDataPromise ? await githubDataPromise : null;
 
   if (!tech) notFound();
@@ -144,11 +139,7 @@ export default async function TechPage({
         </Link>
 
         {isFigma ? (
-          <FigmaDesignShowcase
-            docsUrl={tech.docsUrl}
-            initialUploads={galleryItems}
-            isAdmin={isAdmin}
-          />
+          <FigmaDesignShowcase docsUrl={tech.docsUrl} initialUploads={[]} isAdmin={false} />
         ) : isGitHub && githubData ? (
           <GitHubProfileShowcase data={githubData} docsUrl={tech.docsUrl} />
         ) : (
