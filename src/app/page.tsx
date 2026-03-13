@@ -17,6 +17,8 @@ import {
 import HeroCodeSlider from "@/components/HeroCodeSlider";
 import ExperienceVideo from "@/components/ExperienceVideo";
 import TabsWithCode from "@/components/TabsWithCode";
+import UiUxShowcase from "@/components/UiUxShowcase";
+import VisitorCounter from "@/components/VisitorCounter";
 
 function Container({ children }: { children: ReactNode }) {
   return <div className="mx-auto max-w-6xl px-4 sm:px-5">{children}</div>;
@@ -41,18 +43,21 @@ function Navbar() {
       <Container>
         <nav className="flex flex-wrap items-start justify-between gap-4 sm:items-center">
           <div className="flex min-w-0 items-center gap-3 sm:gap-8">
-            <div className="flex items-center gap-3">
-              <div className="brd grid h-10 w-10 place-items-center rounded-lg bg-white/5 font-bold">
-                S
-              </div>
-              <div className="min-w-0 leading-tight">
-                <div className="text-xs font-semibold sm:text-sm">
-                  Sudharaka Lakshan
+            <div className="flex min-w-0 flex-col items-start gap-2">
+              <div className="flex min-w-0 items-center gap-3">
+                <div className="brd grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-white/5 text-2xl font-semibold text-white/95">
+                  S
                 </div>
-                <div className="hidden text-xs text-white/55 sm:block">
-                  Backend &amp; Database Engineering
+                <div className="min-w-0">
+                  <div className="text-base leading-none font-semibold tracking-tight text-white/96 sm:text-[1.15rem]">
+                    Sudharaka Lakshan
+                  </div>
+                  <div className="mt-1 text-sm leading-none text-white/60 sm:text-[0.96rem]">
+                    Full Stack &amp; Database Engineering
+                  </div>
                 </div>
               </div>
+              <VisitorCounter className="sm:ml-0" />
             </div>
 
             <div className="hidden items-center gap-5 text-sm md:flex">
@@ -421,6 +426,7 @@ export default function Page() {
       <Navbar />
       <Hero />
       <LogoWall />
+      <UiUxShowcase />
       <Feature3 />
 
       <section id="projects" className="py-12 sm:py-16">

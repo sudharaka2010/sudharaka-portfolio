@@ -1,6 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import AdminDock from "@/components/AdminDock";
+import { hasAdminSession } from "@/lib/admin-auth";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -17,10 +19,19 @@ export const metadata: Metadata = {
   description: "Backend-focused SE undergraduate portfolio (Java, Spring Boot, PostgreSQL, Docker).",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const isAdmin = await hasAdminSession();
+
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <AdminDock initialIsAdmin={isAdmin} />
+      </body>
     </html>
   );
 }

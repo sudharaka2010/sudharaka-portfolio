@@ -14,6 +14,11 @@ import {
   TerminalSquare,
   Waypoints,
 } from "lucide-react";
+import FigmaDesignShowcase from "@/components/FigmaDesignShowcase";
+import GitHubProfileShowcase from "@/components/GitHubProfileShowcase";
+import { hasAdminSession } from "@/lib/admin-auth";
+import { listAdminGalleryItems } from "@/lib/admin-gallery";
+import { getGitHubShowcaseData } from "@/lib/github-profile";
 
 type Tech = {
   name: string;
@@ -99,6 +104,7 @@ const TECH_MAP: Record<string, Tech> = {
 };
 
 export const dynamicParams = false;
+export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {
   return Object.keys(TECH_MAP).map((slug) => ({ slug }));
@@ -111,12 +117,24 @@ export default async function TechPage({
 }) {
   const { slug } = await params;
   const tech = TECH_MAP[slug];
+  const isFigma = slug === "figma";
+  const isGitHub = slug === "github";
+  const githubDataPromise = isGitHub ? getGitHubShowcaseData().catch(() => null) : null;
+  const [isAdmin, galleryItems] = isFigma
+    ? await Promise.all([hasAdminSession(), listAdminGalleryItems()])
+    : [false, []];
+  const githubData = githubDataPromise ? await githubDataPromise : null;
 
   if (!tech) notFound();
 
   return (
     <main className="daytona-bg min-h-screen">
-      <div className="mx-auto max-w-4xl px-4 py-10 sm:px-5 sm:py-14">
+      <div
+        className={[
+          "mx-auto px-4 py-10 sm:px-5 sm:py-14",
+          isFigma || isGitHub ? "max-w-6xl" : "max-w-4xl",
+        ].join(" ")}
+      >
         <Link
           href="/#skills"
           className="inline-flex items-center gap-2 text-sm text-white/65 transition hover:text-white"
@@ -125,28 +143,38 @@ export default async function TechPage({
           Back to skills
         </Link>
 
-        <section className="panel mt-6 rounded-2xl p-5 sm:p-8 md:p-10">
-          <div className="flex items-center gap-4">
-            <tech.Icon className={`h-9 w-9 ${tech.colorClass}`} />
-            <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
-              {tech.name}
-            </h1>
-          </div>
+        {isFigma ? (
+          <FigmaDesignShowcase
+            docsUrl={tech.docsUrl}
+            initialUploads={galleryItems}
+            isAdmin={isAdmin}
+          />
+        ) : isGitHub && githubData ? (
+          <GitHubProfileShowcase data={githubData} docsUrl={tech.docsUrl} />
+        ) : (
+          <section className="panel mt-6 rounded-2xl p-5 sm:p-8 md:p-10">
+            <div className="flex items-center gap-4">
+              <tech.Icon className={`h-9 w-9 ${tech.colorClass}`} />
+              <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
+                {tech.name}
+              </h1>
+            </div>
 
-          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-white/70 sm:text-base">
-            {tech.summary}
-          </p>
+            <p className="mt-6 max-w-2xl text-sm leading-relaxed text-white/70 sm:text-base">
+              {tech.summary}
+            </p>
 
-          <a
-            href={tech.docsUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="btn-ghost mt-8 inline-flex w-full items-center justify-center gap-2 sm:w-auto"
-          >
-            Open official docs
-            <ExternalLink className="h-4 w-4" />
-          </a>
-        </section>
+            <a
+              href={tech.docsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-ghost mt-8 inline-flex w-full items-center justify-center gap-2 sm:w-auto"
+            >
+              Open official docs
+              <ExternalLink className="h-4 w-4" />
+            </a>
+          </section>
+        )}
       </div>
     </main>
   );
