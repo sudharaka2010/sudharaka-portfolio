@@ -20,6 +20,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 82px;
 }
 
 body {
@@ -28,6 +29,7 @@ body {
   background: var(--green-950);
   line-height: 1.7;
   overflow-x: hidden;
+  min-width: 320px;
 }
 
 .video-background {
@@ -138,6 +140,7 @@ a {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.12);
   cursor: pointer;
+  color: white;
 }
 
 .menu-toggle span {
@@ -151,6 +154,7 @@ a {
 
 .hero {
   min-height: 100vh;
+  min-height: 100svh;
   position: relative;
   display: flex;
   align-items: center;
@@ -782,6 +786,10 @@ footer {
 }
 
 @media (max-width: 760px) {
+  html {
+    scroll-padding-top: 72px;
+  }
+
   .container {
     width: min(100% - 28px, 1160px);
   }
@@ -812,16 +820,20 @@ footer {
     position: fixed;
     inset: 0;
     min-height: 100vh;
+    min-height: 100dvh;
     background: var(--green-950);
     flex-direction: column;
     justify-content: center;
     gap: 28px;
     transform: translateX(100%);
     transition: transform 0.35s ease;
+    visibility: hidden;
+    padding: calc(72px + env(safe-area-inset-top)) 24px calc(24px + env(safe-area-inset-bottom));
   }
 
   .nav-links.open {
     transform: translateX(0);
+    visibility: visible;
   }
 
   .nav-links a {
@@ -829,7 +841,7 @@ footer {
   }
 
   .hero {
-    min-height: 780px;
+    min-height: max(680px, 100svh);
     background-position: 68% center;
   }
 
@@ -842,7 +854,7 @@ footer {
   .hero-content {
     align-self: end;
     padding-top: 120px;
-    padding-bottom: 58px;
+    padding-bottom: max(58px, calc(36px + env(safe-area-inset-bottom)));
   }
 
   .hero h1 {
@@ -856,6 +868,7 @@ footer {
   .hero-stats {
     gap: 15px;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   .hero-stats div {
@@ -898,6 +911,14 @@ footer {
     min-height: 300px;
   }
 
+  .mock-window {
+    width: min(86%, 520px);
+  }
+
+  .project-featured .project-info {
+    padding: 32px;
+  }
+
   .contact-card {
     padding: 45px 28px;
     border-radius: 24px;
@@ -906,7 +927,7 @@ footer {
 
   .btn-light {
     width: 100%;
-    word-break: break-word;
+    overflow-wrap: anywhere;
     text-align: center;
   }
 
@@ -934,6 +955,7 @@ footer {
 
   .hero-stats {
     font-size: 0.85rem;
+    margin-top: 40px;
   }
 
   .hero-stats div {
@@ -944,6 +966,100 @@ footer {
   .skill-card,
   .project-info {
     padding: 26px;
+  }
+
+  .section {
+    padding: 72px 0;
+  }
+
+  .section h2 {
+    font-size: clamp(2rem, 10vw, 2.75rem);
+  }
+
+  .project-visual {
+    min-height: 260px;
+  }
+
+  .mock-body {
+    height: 180px;
+  }
+
+  .mock-content {
+    padding: 16px 14px 14px 2px;
+  }
+
+  .mock-chart {
+    height: 72px;
+  }
+
+  .phone {
+    width: 140px;
+    height: 264px;
+  }
+
+  .art-card {
+    height: 116px;
+  }
+
+  .shop-card {
+    width: 100px;
+    height: 136px;
+  }
+
+  .shop-card.one { transform: translate(-66px, 5px) rotate(-8deg); }
+  .shop-card.three { transform: translate(66px, 12px) rotate(8deg); }
+  .shop-line { width: 190px; }
+
+  .contact-card {
+    width: calc(100% - 20px);
+    padding: 38px 20px;
+  }
+
+  .social-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    width: calc(100% - 20px);
+  }
+
+  .hero h1 {
+    font-size: 2.45rem;
+  }
+
+  .eyebrow {
+    letter-spacing: 0.11em;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hero-stats span {
+    font-size: 0.68rem;
+  }
+}
+
+@media (max-width: 760px) and (orientation: landscape) {
+  .nav-links {
+    gap: 14px;
+    overflow-y: auto;
+  }
+
+  .hero {
+    min-height: 620px;
+  }
+}
+
+@media (hover: none) {
+  .btn:hover,
+  .skill-card:hover,
+  .project-card:hover {
+    transform: none;
   }
 }
 

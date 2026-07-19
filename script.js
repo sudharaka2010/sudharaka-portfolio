@@ -13,6 +13,7 @@ function closeMenu() {
   menuButton.classList.remove('open');
   navLinks.classList.remove('open');
   menuButton.setAttribute('aria-expanded', 'false');
+  menuButton.setAttribute('aria-label', 'Open navigation');
   document.body.style.overflow = '';
 }
 
@@ -20,6 +21,7 @@ menuButton.addEventListener('click', () => {
   const isOpen = navLinks.classList.toggle('open');
   menuButton.classList.toggle('open', isOpen);
   menuButton.setAttribute('aria-expanded', String(isOpen));
+  menuButton.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
   document.body.style.overflow = isOpen ? 'hidden' : '';
 });
 
@@ -56,6 +58,13 @@ sections.forEach((section) => sectionObserver.observe(section));
 window.addEventListener('scroll', updateHeader, { passive: true });
 window.addEventListener('resize', () => {
   if (window.innerWidth > 760) closeMenu();
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && navLinks.classList.contains('open')) {
+    closeMenu();
+    menuButton.focus();
+  }
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
