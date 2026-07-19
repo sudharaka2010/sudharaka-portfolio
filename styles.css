@@ -25,9 +25,31 @@ html {
 body {
   font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--ink);
-  background: var(--paper);
+  background: var(--green-950);
   line-height: 1.7;
   overflow-x: hidden;
+}
+
+.video-background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background: var(--green-950) url("assets/profile-hero.png") center / cover no-repeat;
+}
+
+.video-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(1, 31, 30, 0.26);
+}
+
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 a {
@@ -133,9 +155,7 @@ a {
   display: flex;
   align-items: center;
   isolation: isolate;
-  background-image: url("assets/profile-hero.png");
-  background-size: cover;
-  background-position: center;
+  background: transparent;
   color: white;
 }
 
@@ -283,7 +303,8 @@ a {
 }
 
 .about {
-  background: var(--cream);
+  background: rgba(245, 241, 232, 0.96);
+  backdrop-filter: blur(12px);
 }
 
 .about-copy {
@@ -324,6 +345,11 @@ a {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;
+}
+
+.skills {
+  background: rgba(251, 250, 246, 0.96);
+  backdrop-filter: blur(12px);
 }
 
 .skill-card {
@@ -383,7 +409,8 @@ a {
 }
 
 .projects {
-  background: #edf3ef;
+  background: rgba(237, 243, 239, 0.96);
+  backdrop-filter: blur(12px);
 }
 
 .projects-heading {
@@ -636,7 +663,8 @@ a {
 }
 
 .contact {
-  background: var(--paper);
+  background: rgba(251, 250, 246, 0.94);
+  backdrop-filter: blur(12px);
 }
 
 .contact-card {
@@ -694,6 +722,8 @@ a {
 
 footer {
   border-top: 1px solid var(--line);
+  background: rgba(251, 250, 246, 0.96);
+  backdrop-filter: blur(12px);
 }
 
 .footer-content {
@@ -924,4 +954,6 @@ footer {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+
+  .video-background video { display: none; }
 }
