@@ -3,266 +3,270 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio of Sudharaka Lakshan, a full-stack software engineering undergraduate building reliable web applications, APIs and digital products." />
-  <meta name="theme-color" content="#023f3e" />
+  <meta name="description" content="Portfolio of Sudharaka Lakshan, a full-stack software engineer creating reliable software and thoughtful digital products." />
+  <meta name="theme-color" content="#061b19" />
   <meta property="og:title" content="Sudharaka Lakshan | Full-Stack Software Engineer" />
-  <meta property="og:description" content="Full-stack projects, backend APIs and product-focused software engineering." />
+  <meta property="og:description" content="Selected software projects, engineering capabilities and digital product services." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sudharaka-lakshan.vercel.app/" />
   <meta property="og:image" content="https://sudharaka-lakshan.vercel.app/assets/profile-hero.png" />
   <link rel="canonical" href="https://sudharaka-lakshan.vercel.app/" />
-  <link rel="icon" type="image/png" href="assets/profile-hero.png" />
-  <link rel="apple-touch-icon" href="assets/profile-hero.png" />
+  <link rel="icon" type="image/png" sizes="1536x1536" href="assets/sl-icon.png" />
+  <link rel="apple-touch-icon" href="assets/sl-icon.png" />
   <title>Sudharaka Lakshan | Software Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
-  <div class="video-background" aria-hidden="true">
-    <video autoplay muted loop playsinline preload="auto" poster="assets/profile-hero.png">
-      <source src="assets/portfolio-background.mp4" type="video/mp4" />
-    </video>
-  </div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <div class="page-grain" aria-hidden="true"></div>
+
   <header class="site-header" id="top">
     <nav class="navbar container" aria-label="Main navigation">
-      <a class="brand" href="#home" aria-label="Go to home">
+      <a class="brand" href="#home" aria-label="Sudharaka Lakshan — home">
         <span class="brand-mark" aria-hidden="true">SL</span>
         <span class="brand-name">Sudharaka Lakshan<small>Software Engineer</small></span>
       </a>
-
       <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation">
         <span></span><span></span><span></span>
       </button>
-
       <div class="nav-links" id="primary-navigation">
-        <a href="#home" class="active">Home</a>
         <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#approach">Approach</a>
-        <a href="#contact" class="nav-cta">Contact</a>
+        <a href="#projects">Work</a>
+        <a href="#services">Services</a>
+        <a href="#approach">Process</a>
+        <a href="#contact" class="nav-cta">Let’s talk <span aria-hidden="true">↗</span></a>
       </div>
     </nav>
   </header>
 
   <main id="main-content">
     <section class="hero" id="home">
-      <div class="hero-overlay"></div>
-      <div class="container hero-content reveal">
-        <div class="availability"><i aria-hidden="true"></i> Open to internships and junior roles</div>
-        <p class="eyebrow">Full-Stack Engineering · Backend Systems · Product Design</p>
-        <h1>I build software that is <span>clear, reliable and useful.</span></h1>
-        <p class="hero-copy">
-          Software engineering undergraduate creating maintainable web applications, REST APIs and thoughtful digital experiences—from first idea to working product.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">Explore selected work <span aria-hidden="true">↓</span></a>
-          <a class="btn btn-secondary" href="mailto:sudharaka.lakshan@outlook.com">Start a conversation</a>
-        </div>
-        <div class="hero-stats" aria-label="Professional highlights">
-          <div><strong>4 featured</strong><span>Working projects</span></div>
-          <div><strong>Full-stack</strong><span>Frontend to data</span></div>
-          <div><strong>Global</strong><span>Remote & relocation</span></div>
-        </div>
+      <div class="hero-media" aria-hidden="true">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/profile-hero.png">
+          <source src="assets/portfolio-background.mp4" type="video/mp4" />
+        </video>
       </div>
-      <a class="scroll-indicator" href="#about" aria-label="Scroll to about section">Scroll ↓</a>
+      <div class="hero-wash" aria-hidden="true"></div>
+      <div class="hero-orbit orbit-one" aria-hidden="true"></div>
+      <div class="hero-orbit orbit-two" aria-hidden="true"></div>
+
+      <div class="container hero-layout">
+        <div class="hero-content">
+          <p class="eyebrow hero-reveal">Full-stack engineer <span></span> Product-minded builder</p>
+          <h1 class="hero-reveal">Building digital products with <em>clarity, craft</em> and purpose.</h1>
+          <p class="hero-copy hero-reveal">I turn real business problems into reliable software—from thoughtful interfaces to dependable backend systems.</p>
+          <div class="hero-actions hero-reveal">
+            <a class="btn btn-primary" href="#projects">Explore my work <span aria-hidden="true">↓</span></a>
+            <a class="btn btn-quiet" href="#services">View capabilities <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+
+        <aside class="hero-note hero-reveal" aria-label="Profile summary">
+          <span class="note-index">01 / Profile</span>
+          <p>Software Engineering & Computer Science undergraduate based in Sri Lanka.</p>
+          <div class="note-meta">
+            <span>Engineering</span>
+            <span>Design</span>
+            <span>Business</span>
+          </div>
+        </aside>
+      </div>
+
+      <div class="hero-footer container">
+        <p>Selected portfolio · 2026</p>
+        <a href="#about">Scroll to discover <span aria-hidden="true">↓</span></a>
+      </div>
     </section>
 
     <div class="technology-strip" aria-label="Core technologies">
-      <div class="container">
-        <span>Java</span><i></i><span>Spring Boot</span><i></i><span>React</span><i></i><span>JavaScript</span><i></i><span>C++</span><i></i><span>SQL</span><i></i><span>Figma</span>
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span>Java</span><i></i><span>Spring Boot</span><i></i><span>React</span><i></i><span>JavaScript</span><i></i><span>SQL</span><i></i><span>Figma</span><i></i>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <span>Java</span><i></i><span>Spring Boot</span><i></i><span>React</span><i></i><span>JavaScript</span><i></i><span>SQL</span><i></i><span>Figma</span><i></i>
+        </div>
       </div>
     </div>
 
     <section class="section about" id="about">
-      <div class="container two-column">
-        <div class="section-heading reveal">
-          <p class="section-label">About me</p>
-          <h2>I connect clean engineering with thoughtful product design.</h2>
-        </div>
-        <div class="about-copy reveal">
-          <p>
-            I am a Year 2 BSc (Hons) Software Engineering and Computer Science undergraduate at SLIIT City University, affiliated with the University of Bedfordshire, UK.
-          </p>
-          <p>
-            My work spans Java and Spring Boot APIs, React interfaces, relational database design and end-to-end UI/UX in Figma. I value clean architecture, maintainable code and practical user experiences.
-          </p>
-          <div class="profile-facts" aria-label="Profile details">
-            <div><span>Based in</span><strong>Sri Lanka</strong></div>
-            <div><span>Interested in</span><strong>Europe & GCC opportunities</strong></div>
-          </div>
-          <a class="text-link" href="#contact">Start a conversation <span>↗</span></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section skills" id="skills">
       <div class="container">
-        <div class="section-heading centered reveal">
-          <p class="section-label">What I do</p>
-          <h2>Skills that bring a product from idea to launch.</h2>
+        <div class="section-intro reveal">
+          <p class="section-kicker"><span>01</span> About</p>
+          <p class="section-aside">Engineering depth.<br />Product perspective.</p>
         </div>
-
-        <div class="skills-grid">
-          <article class="skill-card reveal">
-            <span class="card-number">01</span>
-            <h3>Frontend Development</h3>
-            <p>Responsive interfaces built with modern, maintainable web technologies.</p>
-            <div class="tag-row"><span>React.js</span><span>JavaScript</span><span>Next.js</span></div>
-          </article>
-
-          <article class="skill-card reveal">
-            <span class="card-number">02</span>
-            <h3>Backend & APIs</h3>
-            <p>Dependable application logic, REST APIs and relational data workflows.</p>
-            <div class="tag-row"><span>Java</span><span>Spring Boot</span><span>REST APIs</span></div>
-          </article>
-
-          <article class="skill-card reveal">
-            <span class="card-number">03</span>
-            <h3>Data & Deployment</h3>
-            <p>Practical systems that ingest, validate and manage business data.</p>
-            <div class="tag-row"><span>PostgreSQL</span><span>MySQL</span><span>Docker</span></div>
-          </article>
+        <div class="about-grid">
+          <h2 class="display-title reveal">I care about the space where <em>clean engineering</em> meets meaningful experience.</h2>
+          <div class="about-copy reveal">
+            <p>I’m a Year 2 BSc (Hons) Software Engineering and Computer Science undergraduate at SLIIT City University, affiliated with the University of Bedfordshire, UK.</p>
+            <p>My work spans Java and Spring Boot APIs, React interfaces, relational databases and end-to-end product design. I build with a business mindset: understand the need, simplify the system and deliver something people can trust.</p>
+            <a class="arrow-link" href="#contact">Start a conversation <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="fact-grid reveal">
+          <div><span>Based in</span><strong>Sri Lanka</strong></div>
+          <div><span>Focus</span><strong>Full-stack products</strong></div>
+          <div><span>Perspective</span><strong>Technology + business</strong></div>
+          <div><span>Reach</span><strong>Remote & relocation</strong></div>
         </div>
       </div>
     </section>
 
     <section class="section projects" id="projects">
       <div class="container">
+        <div class="section-intro reveal">
+          <p class="section-kicker"><span>02</span> Selected work</p>
+          <a class="arrow-link light-link" href="https://github.com/sudharaka2010" target="_blank" rel="noreferrer">All repositories <span aria-hidden="true">↗</span></a>
+        </div>
         <div class="projects-heading reveal">
-          <div>
-            <p class="section-label">Selected work</p>
-            <h2>Projects designed to solve real problems.</h2>
-          </div>
-          <a class="text-link" href="https://github.com/sudharaka2010" target="_blank" rel="noreferrer">View GitHub <span>↗</span></a>
+          <h2 class="display-title">Proof through <em>working products.</em></h2>
+          <p>A selection of systems that combine practical workflows, maintainable code and clear user experience.</p>
         </div>
 
-        <div class="project-grid">
-          <article class="project-card project-featured video-project reveal">
+        <div class="project-list">
+          <article class="project-card featured-project reveal">
             <div class="project-visual project-video">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/IC3q-6fYCcE?rel=0"
-                title="C++ Banking System Project demonstration"
-                loading="lazy"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-              </iframe>
+              <iframe src="https://www.youtube-nocookie.com/embed/IC3q-6fYCcE?rel=0" title="C++ Banking System project demonstration" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <span class="visual-label">Project film · 01</span>
             </div>
             <div class="project-info">
-              <span>C++ · Object-Oriented Programming · Console App</span>
+              <div class="project-topline"><span>01</span><span>C++ · OOP · Console</span></div>
               <h3>Banking System</h3>
-              <p>A C++ banking application for managing customer accounts and handling core transactions, including deposits and withdrawals, through a clear, structured workflow.</p>
-              <ul class="project-points"><li>Account management</li><li>Transaction workflows</li><li>OOP structure</li></ul>
-              <a href="https://youtu.be/IC3q-6fYCcE" target="_blank" rel="noreferrer">Watch project demo <span aria-hidden="true">↗</span></a>
+              <p>A structured C++ banking application for managing customer accounts and core transactions through a clear, dependable workflow.</p>
+              <ul><li>Account management</li><li>Transaction workflows</li><li>Object-oriented structure</li></ul>
+              <a class="arrow-link" href="https://youtu.be/IC3q-6fYCcE" target="_blank" rel="noreferrer">Watch project demo <span aria-hidden="true">↗</span></a>
             </div>
           </article>
 
-          <article class="project-card project-featured reveal">
+          <article class="project-card featured-project reverse reveal">
             <div class="project-visual dashboard-visual">
               <div class="mock-window">
-                <div class="mock-top"><i></i><i></i><i></i></div>
+                <div class="mock-top"><i></i><i></i><i></i><b>Inventory overview</b></div>
                 <div class="mock-body">
-                  <div class="mock-sidebar"></div>
+                  <div class="mock-sidebar"><i></i><i></i><i></i><i></i></div>
                   <div class="mock-content">
-                    <div class="mock-title"></div>
+                    <span>Good morning</span>
                     <div class="mock-stats"><b></b><b></b><b></b></div>
                     <div class="mock-chart"></div>
                   </div>
                 </div>
               </div>
+              <span class="visual-label">Business system · 02</span>
             </div>
             <div class="project-info">
-              <span>Full-Stack App · PHP · MariaDB · MVC</span>
+              <div class="project-topline"><span>02</span><span>PHP · MariaDB · MVC</span></div>
               <h3>Smart Inventory & Order Management</h3>
-              <p>Inventory and billing management with a relational schema, transaction-safe CRUD operations and a responsive frontend.</p>
-              <ul class="project-points"><li>Relational data</li><li>Safe CRUD</li><li>Responsive UI</li></ul>
-              <a href="https://github.com/sudharaka2010/smart-inventory-system" target="_blank" rel="noreferrer">View source ↗</a>
+              <p>A full-stack inventory and billing platform with relational data, transaction-safe CRUD operations and a responsive business interface.</p>
+              <ul><li>Relational data</li><li>Safe CRUD</li><li>Responsive interface</li></ul>
+              <a class="arrow-link" href="https://github.com/sudharaka2010/smart-inventory-system" target="_blank" rel="noreferrer">Explore the source <span aria-hidden="true">↗</span></a>
             </div>
           </article>
 
-          <article class="project-card reveal">
-            <div class="project-visual phone-visual">
-              <div class="phone">
-                <div class="phone-speaker"></div>
-                <div class="phone-screen">
-                  <span>Artly</span>
-                  <div class="art-card"></div>
-                  <div class="art-lines"><i></i><i></i><i></i></div>
-                </div>
+          <div class="project-pair">
+            <article class="compact-project reveal">
+              <div class="compact-visual medicare-visual">
+                <span class="app-symbol">M+</span>
+                <div class="data-lines"><i></i><i></i><i></i><i></i></div>
               </div>
-            </div>
-            <div class="project-info">
-              <span>Desktop App · Java · SQLite</span>
-              <h3>MedicarePlus</h3>
-              <p>Manage patient records, appointments and billing through clean MVC separation and a modular architecture.</p>
-              <a href="https://github.com/sudharaka2010/MedicarePlus" target="_blank" rel="noreferrer">View source ↗</a>
-            </div>
-          </article>
+              <div class="compact-info">
+                <div class="project-topline"><span>03</span><span>Java · SQLite</span></div>
+                <h3>MedicarePlus</h3>
+                <p>Patient records, appointments and billing in a modular desktop application.</p>
+                <a href="https://github.com/sudharaka2010/MedicarePlus" target="_blank" rel="noreferrer" aria-label="View MedicarePlus source">↗</a>
+              </div>
+            </article>
+            <article class="compact-project reveal">
+              <div class="compact-visual api-visual">
+                <div class="api-ring"><span>API</span></div>
+                <div class="api-code"><i></i><i></i><i></i><i></i></div>
+              </div>
+              <div class="compact-info">
+                <div class="project-topline"><span>04</span><span>Spring Boot · MySQL</span></div>
+                <h3>Lottery Results API</h3>
+                <p>Automated scraping, 10+ REST endpoints and 1,000+ normalized records.</p>
+                <a href="https://github.com/sudharaka2010/synapse_q3_lottery" target="_blank" rel="noreferrer" aria-label="View Lottery Results API source">↗</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <article class="project-card reveal">
-            <div class="project-visual ecommerce-visual">
-              <div class="shop-card one"></div>
-              <div class="shop-card two"></div>
-              <div class="shop-card three"></div>
-              <div class="shop-line"></div>
-            </div>
-            <div class="project-info">
-              <span>REST API · Spring Boot · Jsoup · MySQL</span>
-              <h3>Lottery Result Scraper & REST API</h3>
-              <p>Automated scraping with 10+ REST endpoints, structured validation and more than 1,000 normalized records.</p>
-              <a href="https://github.com/sudharaka2010/synapse_q3_lottery" target="_blank" rel="noreferrer">View source ↗</a>
-            </div>
-          </article>
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-intro reveal">
+          <p class="section-kicker"><span>03</span> Business capabilities</p>
+          <p class="section-aside">From an idea<br />to a useful system.</p>
+        </div>
+        <div class="services-grid">
+          <div class="services-title reveal">
+            <h2 class="display-title">Digital solutions designed to <em>move work forward.</em></h2>
+            <p>Alongside my portfolio work, I help shape practical digital products for businesses, teams and new ideas.</p>
+          </div>
+          <div class="service-list">
+            <article class="service-item reveal">
+              <span>01</span>
+              <div><h3>Business web applications</h3><p>Custom systems for internal workflows, inventory, operations and customer experiences.</p></div>
+              <b aria-hidden="true">↗</b>
+            </article>
+            <article class="service-item reveal">
+              <span>02</span>
+              <div><h3>Backend systems & APIs</h3><p>Maintainable application logic, structured data and integrations built for dependable use.</p></div>
+              <b aria-hidden="true">↗</b>
+            </article>
+            <article class="service-item reveal">
+              <span>03</span>
+              <div><h3>Product & interface design</h3><p>Clear user journeys and polished interfaces that connect business goals with user needs.</p></div>
+              <b aria-hidden="true">↗</b>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section approach" id="approach">
       <div class="container">
-        <div class="approach-intro reveal">
-          <p class="section-label light">How I work</p>
-          <h2>Engineering with purpose, from problem to product.</h2>
-          <p>I focus on the decisions behind the interface: clear requirements, dependable architecture and software that remains understandable as it grows.</p>
+        <div class="section-intro reveal">
+          <p class="section-kicker"><span>04</span> Process</p>
+          <p class="section-aside">Simple by design.<br />Serious in execution.</p>
+        </div>
+        <div class="approach-heading reveal">
+          <h2 class="display-title">A thoughtful path from <em>problem to product.</em></h2>
         </div>
         <div class="approach-grid">
           <article class="approach-card reveal">
-            <span>01</span>
-            <h3>Understand</h3>
-            <p>Define the user, the business need and the smallest useful outcome before writing code.</p>
+            <span>01</span><h3>Understand</h3>
+            <p>Define the user, business need and smallest meaningful outcome before building.</p>
           </article>
           <article class="approach-card reveal">
-            <span>02</span>
-            <h3>Engineer</h3>
-            <p>Choose a maintainable structure, validate data and keep responsibilities clearly separated.</p>
+            <span>02</span><h3>Engineer</h3>
+            <p>Choose a maintainable structure, validate the data and keep responsibilities clear.</p>
           </article>
           <article class="approach-card reveal">
-            <span>03</span>
-            <h3>Refine</h3>
-            <p>Test real workflows, improve usability and document the decisions that help others contribute.</p>
+            <span>03</span><h3>Refine</h3>
+            <p>Test real workflows, improve usability and make every interaction feel intentional.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section contact" id="contact">
-      <div class="container contact-card reveal">
-        <div>
-          <p class="section-label light">Available for opportunities</p>
-          <h2>Let’s build something useful together.</h2>
-          <p>I am open to software engineering internships and junior roles in Sri Lanka, Europe and the GCC, including remote and relocation opportunities.</p>
-        </div>
-        <div class="contact-actions">
-          <a class="btn btn-light" href="mailto:sudharaka.lakshan@outlook.com">sudharaka.lakshan@outlook.com</a>
+    <section class="contact" id="contact">
+      <div class="container contact-inner reveal">
+        <p class="section-kicker light-kicker"><span>05</span> Start a conversation</p>
+        <h2>Have a role, project<br />or business idea?</h2>
+        <p>Let’s turn the next idea into something clear, useful and well built.</p>
+        <a class="contact-email" href="mailto:sudharaka.lakshan@outlook.com">sudharaka.lakshan@outlook.com <span aria-hidden="true">↗</span></a>
+        <div class="contact-footer">
           <div class="social-links">
-            <a href="https://www.linkedin.com/in/sudharaka-thilakasiri-229575199" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href="https://github.com/sudharaka2010" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/sudharaka-thilakasiri-229575199" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a href="https://github.com/sudharaka2010" target="_blank" rel="noreferrer">GitHub ↗</a>
             <a href="tel:+94778587128">+94 77 858 7128</a>
           </div>
+          <p>Sri Lanka · Available worldwide</p>
         </div>
       </div>
     </section>
@@ -270,7 +274,8 @@
 
   <footer>
     <div class="container footer-content">
-      <p>© <span id="year"></span> Sudharaka Lakshan. All rights reserved.</p>
+      <p>© <span id="year"></span> Sudharaka Lakshan</p>
+      <p>Engineering · Design · Business</p>
       <a href="#top">Back to top ↑</a>
     </div>
   </footer>
