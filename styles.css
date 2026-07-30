@@ -170,7 +170,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--orange); outlin
 .project-info > p { color: var(--muted); }
 .project-info ul { display: flex; gap: 7px; flex-wrap: wrap; list-style: none; margin-top: 25px; }
 .project-info li { padding: 6px 10px; border: 1px solid var(--line); border-radius: 20px; color: var(--muted); font-size: .66rem; }
-.dashboard-visual { display: grid; place-items: center; background: radial-gradient(circle at 75% 15%, #91c4ae, transparent 37%), #c7ddd3; }
+.dashboard-visual { display: grid; place-items: center; padding: 34px; background: radial-gradient(circle at 75% 15%, #91c4ae, transparent 37%), #c7ddd3; }
+.project-demo-video { display: block; width: 100%; height: auto; max-height: 100%; aspect-ratio: 16 / 9; object-fit: contain; border-radius: 12px; background: #061b19; box-shadow: 0 28px 65px rgba(6,27,25,.25); }
 .mock-window { width: 80%; background: #f7faf8; border-radius: 12px; box-shadow: 0 28px 65px rgba(6,27,25,.25); transform: perspective(1000px) rotateY(-4deg) rotateX(2deg); transition: transform .8s var(--ease); }
 .project-card:hover .mock-window { transform: perspective(1000px) rotateY(0) rotateX(0) translateY(-8px); }
 .mock-top { height: 35px; display: flex; align-items: center; gap: 5px; padding: 0 12px; border-bottom: 1px solid #dae4df; }
@@ -300,6 +301,8 @@ footer { background: #0b302c; color: rgba(255,255,255,.45); border-top: 1px soli
   .project-visual { min-height: 380px; }
   .project-video { padding: 14px; min-height: 320px; }
   .project-video iframe { min-height: 320px; }
+  .dashboard-visual { padding: 22px; }
+  .project-demo-video { width: 100%; height: auto; min-height: 0; }
   .project-info { padding: 40px 28px; }
   .project-info h3 { margin-top: 34px; }
   .compact-project { grid-template-columns: 1fr; }
@@ -323,6 +326,8 @@ footer { background: #0b302c; color: rgba(255,255,255,.45); border-top: 1px soli
   .display-title { font-size: clamp(2.45rem,12vw,3.5rem); }
   .project-visual { min-height: 280px; }
   .project-video iframe { min-height: 250px; }
+  .dashboard-visual { padding: 14px; }
+  .project-demo-video { min-height: 0; border-radius: 8px; }
   .mock-window { width: 90%; }
   .mock-body { height: 220px; }
   .mock-chart { height: 85px; }
