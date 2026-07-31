@@ -188,11 +188,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--orange); outlin
 .project-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 .compact-project { display: grid; grid-template-columns: 1fr 1fr; min-height: 410px; background: var(--paper); color: var(--ink); overflow: hidden; }
 .compact-visual { position: relative; display: grid; place-items: center; overflow: hidden; }
-.medicare-visual { background: #dcece5; }
-.app-symbol { width: 125px; height: 125px; display: grid; place-items: center; border-radius: 30px; background: var(--forest-3); color: var(--mint); font: 700 2.2rem "Manrope", sans-serif; box-shadow: 0 25px 50px rgba(16,60,55,.2); }
-.data-lines { position: absolute; inset: auto 18% 12%; }
-.data-lines i { display: block; height: 4px; margin-top: 8px; border-radius: 4px; background: rgba(16,60,55,.14); }
-.data-lines i:nth-child(2) { width: 82%; }.data-lines i:nth-child(3) { width: 65%; }.data-lines i:nth-child(4) { width: 90%; }
+.medicare-visual { padding: 18px; background: radial-gradient(circle at 20% 16%, rgba(255,255,255,.82), transparent 44%), #dcece5; }
+.medicare-demo-video { max-width: 520px; }
 .api-visual { background: #152e2b; }
 .api-ring { width: 145px; height: 145px; display: grid; place-items: center; border: 1px solid rgba(168,225,197,.35); border-radius: 50%; box-shadow: 0 0 0 28px rgba(168,225,197,.04),0 0 0 56px rgba(168,225,197,.025); }
 .api-ring span { color: var(--mint); font: 700 1.4rem "Manrope",sans-serif; letter-spacing: .15em; }
